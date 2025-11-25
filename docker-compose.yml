@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: my_http_server
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    image: simple-http-server:latest
+
+    ports:
+      - "8080:8080"
+
+
+    volumes:
+      - ./server.conf:/app/server.conf
+      - ./server.log:/app/server.log
+
+
+    stdin_open: true 
+    tty: true
